@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mapa IC - 1º Andar</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    
+    <style type="text/css">
+        body {
+            color: #5d5d5d;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin: auto;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;            
+        }
+        @media screen and (max-width: 980px) {
+            .container {
+                max-width: 100%;
+                width: 100%;
+                margin: 0;                                
+            }
+            .mapael .mapTooltip {
+                font-size: 40px;
+            }
+        }
+
+        /* Specific mapael css class are below
+         * 'mapael' class is added by plugin
+        */
+
+        .mapael .map {
+            background-color: #cddee0;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        /* For all zoom buttons */
+        .mapael .zoomButton {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            color: #000;
+            width: 15px;
+            height: 15px;
+            line-height: 15px;
+            text-align: center;
+            border-radius: 3px;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            font-weight: bold;
+            left: 10px;
+
+            -webkit-user-select: none;
+            -khtml-user-select : none;
+            -moz-user-select: none;
+            -o-user-select : none;
+            user-select: none;
+        }
+
+        /* Reset Zoom button first */
+        .mapael .zoomReset {
+            top: 10px;
+        }
+
+        /* Then Zoom In button */
+        .mapael .zoomIn {
+            top: 30px;
+        }
+
+        /* Then Zoom Out button */
+        .mapael .zoomOut {
+            top: 50px;
+        }
+
+        .mapael .mapTooltip {
+            position: absolute;
+            background-color: #474c4b;
+            moz-opacity: 0.70;
+            opacity: 0.70;
+            filter: alpha(opacity=70);
+            border-radius: 10px;
+            padding: 10px;
+            z-index: 1000;
+            display: none;
+            color: #fff;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"
+            charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js" charset="utf-8"></script>
+    <script src="js/jquery.mapael.js" charset="utf-8"></script>
+    <script src="js/maps/ic_terreo.js" charset="utf-8"></script>
+    <script src="js/maps/world_countries.js" charset="utf-8"></script>
+    <script src="js/maps/usa_states.js" charset="utf-8"></script>
+
+<!--
+    <script type="text/javascript">
+        (function($) {
+            $(function(){
+                $(".mapcontainer").mapael({
+                    map : {
+                        name : "france_departments",
+                        zoom: {
+                            enabled:true
+                        }
+                    }
+                });
+            });
+    </script>
+-->
+    <script type="text/javascript">
+        $(function () {
+            $(".mapcontainer").mapael({
+                map: {
+                    // Set the name of the map to display
+                    name: "ic_terreo",
+                    zoom: {
+                        enabled:true
+                    }
+                },
+                areas: {
+                    "Direcao": {
+                        attrs: {
+                            fill: "#FFD844"
+                        }
+                        , attrsHover: {
+                            fill: "#D9B800"
+                        },
+                        text: {content: "", attrs: {"font-size": 15, "fill": "#000"}},
+                        tooltip: {content: "Direção"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "Pos": {
+                        attrs: {
+                            fill: "#FFD844"
+                        }
+                        , attrsHover: {
+                            fill: "#D9B800"
+                        },
+                        text: {content: "", attrs: {"font-size": 15, "fill": "#000"}},
+                        tooltip: {content: "Coordenação de Pós-Graduação"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "Coord": {
+                        attrs: {
+                            fill: "#FFD844"
+                        }
+                        , attrsHover: {
+                            fill: "#D9B800"
+                        },
+                        text: {content: "", attrs: {"font-size": 15, "fill": "#000"}},
+                        tooltip: {content: "Coordenações de Cursos"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "ApoioTecnico": {
+                        attrs: {
+                            fill: "#FFD844"
+                        }
+                        , attrsHover: {
+                            fill: "#D9B800"
+                        },
+                        text: {content: "", attrs: {"font-size": 15, "fill": "#000"}},
+                        tooltip: {content: "Sala de Apoio Técnico"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "Elevador": {
+                        attrs: {
+                            fill: "#2851a9"
+                        }
+                        , attrsHover: {
+                            fill: "#000076"
+                        },
+                        text: {content: "", attrs: {"font-size": 15, "fill": "#000"}},
+                        tooltip: {content: "Elevador"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "NUTI": {
+                        attrs: {
+                            fill: "#aaccff"
+                        }
+                        , attrsHover: {
+                            fill: "#647896"
+                        },
+                        text: {content: "NUTI", attrs: {"font-size": 38, "fill": "#000"}},
+                        tooltip: {content: "Núcleo de Tecnologia da Informação"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "Video": {
+                        attrs: {
+                            fill: "#aaccff"
+                        }
+                        , attrsHover: {
+                            fill: "#647896"
+                        },
+                        text: {content: "Video", attrs: {"font-size": 18, "fill": "#000"}},
+                        tooltip: {content: "Sala de videoconferência"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "Auditorio": {
+                        attrs: {
+                            fill: "#FF5555"
+                        }
+                        , attrsHover: {
+                            fill: "#9E3535"
+                        },
+                        text: {content: "Auditório", attrs: {"font-size": 45, "fill": "#000"}},
+                        tooltip: {content: "Auditório (Bugão)"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "Jardim": {
+                        attrs: {
+                            fill: "#AADE87"
+                        }
+                        , attrsHover: {
+                            fill: "#00B06B"
+                        },
+                        text: {content: "Jardim", attrs: {"font-size": 45, "fill": "#000"}},
+                        tooltip: {content: "Jardim aberto"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "Corredores": {
+                        attrs: {
+                            fill: "#e6e6e6"
+                        }
+                        , attrsHover: {
+                            fill: "#919191"
+                        },
+                        text: {content: "", attrs: {"font-size": 45, "fill": "#000"}},
+                        tooltip: {content: "Corredores"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "Escadas": {
+                        attrs: {
+                            fill: "#B89E8D"
+                        }
+                        , attrsHover: {
+                            fill: "#7D6C60"
+                        },
+                        text: {content: "Escadas", attrs: {"font-size": 12, "fill": "#000"}},
+                        tooltip: {content: "Escadas"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "EscadasAudit": {
+                        attrs: {
+                            fill: "#B89E8D"
+                        }
+                        , attrsHover: {
+                            fill: "#7D6C60"
+                        },
+                        text: {content: "Escadas", attrs: {"font-size": 12, "fill": "#000"}},
+                        tooltip: {content: "Escadas"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "EscadasLabs": {
+                        attrs: {
+                            fill: "#B89E8D"
+                        }
+                        , attrsHover: {
+                            fill: "#7D6C60"
+                        },
+                        text: {content: "Escadas", attrs: {"font-size": 24, "fill": "#000"}},
+                        tooltip: {content: "Escadas"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "EscadasProf": {
+                        attrs: {
+                            fill: "#B89E8D"
+                        }
+                        , attrsHover: {
+                            fill: "#7D6C60"
+                        },
+                        text: {content: "", attrs: {"font-size": 10, "fill": "#000"}},
+                        tooltip: {content: "Escadas"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "CB01": {
+                        attrs: {
+                            fill: "#aaeeff"
+                        }
+                        , attrsHover: {
+                            fill: "#00C3D1"
+                        },
+                        text: {content: "CB01", attrs: {"font-size": 35, "fill": "#000"}},
+                        tooltip: {content: "Sala CB01"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "CB02": {
+                        attrs: {
+                            fill: "#aaeeff"
+                        }
+                        , attrsHover: {
+                            fill: "#00C3D1"
+                        },
+                        text: {content: "CB02", attrs: {"font-size": 35, "fill": "#000"}},
+                        tooltip: {content: "Sala CB02"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "CB03": {
+                        attrs: {
+                            fill: "#aaeeff"
+                        }
+                        , attrsHover: {
+                            fill: "#00C3D1"
+                        },
+                        text: {content: "CB03", attrs: {"font-size": 35, "fill": "#000"}},
+                        tooltip: {content: "Sala CB03"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "CB04": {
+                        attrs: {
+                            fill: "#aaeeff"
+                        }
+                        , attrsHover: {
+                            fill: "#00C3D1"
+                        },
+                        text: {content: "CB04", attrs: {"font-size": 35, "fill": "#000"}},
+                        tooltip: {content: "Sala CB04"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "CB05": {
+                        attrs: {
+                            fill: "#aaeeff"
+                        }
+                        , attrsHover: {
+                            fill: "#00C3D1"
+                        },
+                        text: {content: "CB05", attrs: {"font-size": 35, "fill": "#000"}},
+                        tooltip: {content: "Sala CB05"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "CA": {
+                        attrs: {
+                            fill: "#FF9046"
+                        }
+                        , attrsHover: {
+                            fill: "#9C582B"
+                        },
+                        text: {content: "CA", attrs: {"font-size": 35, "fill": "#000"}},
+                        tooltip: {content: "Centro Acadêmico"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "Cantina": {
+                        attrs: {
+                            fill: "#80ffe6"
+                        }
+                        , attrsHover: {
+                            fill: "#00B8A6"
+                        },
+                        text: {content: "Cantina", attrs: {"font-size": 35, "fill": "#000"}},
+                        tooltip: {content: "Cantina"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "BanheirosAudit": {
+                        attrs: {
+                            fill: "#DDC0E5"
+                        }
+                        , attrsHover: {
+                            fill: "#AA93B0"
+                        },
+                          text: {content: "Banheiros", attrs: {"font-size": 18, "fill": "#000"}},
+                          tooltip: {content: "Banheiros"}
+                    },
+                    "BanheirosHall": {
+                        attrs: {
+                            fill: "#DDC0E5"
+                        }
+                        , attrsHover: {
+                            fill: "#AA93B0"
+                        },
+                          text: {content: "Banheiros", attrs: {"font-size": 12, "fill": "#000"}},
+                          tooltip: {content: "Banheiros"}
+//                        href: "http://fr.wikipedia.org/wiki/C%C3%B4te-d%27Or",
+//                        target: "_blank"
+                    }
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Instituto de Computação - 1º Andar</h1>    
+
+    <div class="mapcontainer">
+        <div class="map">
+            <span>Alternative content for the map</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <a href="IC-terreo.html" class="btn btn-primary btn-lg wow fadeInLeft" style="width:95%" data-wow-delay="0.2s" rel="nofollow">Térreo</a>
+        </div>
+        <div class="col-md-6">
+            <a href="index.html" class="btn btn-default btn-lg wow fadeInLeft" style="width:95%" data-wow-delay="0.2s" rel="nofollow">Início</a>
+        </div>
+    </div>
+
+<!--    <p><b>All example for jQuery Mapael are available <a href="https://www.vincentbroute.fr/mapael/">here</a>.</b></p>-->
+</div>
+</body>
+</html>
