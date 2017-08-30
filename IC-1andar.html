@@ -17,6 +17,7 @@
         body {
             color: #5d5d5d;
             font-family: Helvetica, Arial, sans-serif;
+            background-color: #3c4f74;
         }
 
         h1 {
@@ -24,6 +25,7 @@
             margin: auto;
             margin-top: 50px;
             text-align: center;
+            color: azure;
         }
 
         .container {
@@ -108,9 +110,7 @@
             charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js" charset="utf-8"></script>
     <script src="js/jquery.mapael.js" charset="utf-8"></script>
-    <script src="js/maps/ic_terreo.js" charset="utf-8"></script>
-    <script src="js/maps/world_countries.js" charset="utf-8"></script>
-    <script src="js/maps/usa_states.js" charset="utf-8"></script>
+    <script src="js/maps/ic_andar1.js" charset="utf-8"></script>
 
 <!--
     <script type="text/javascript">
@@ -132,13 +132,13 @@
             $(".mapcontainer").mapael({
                 map: {
                     // Set the name of the map to display
-                    name: "ic_terreo",
+                    name: "ic_andar1",
                     zoom: {
                         enabled:true
                     }
                 },
                 areas: {
-                    "Direcao": {
+                    "Sala77": {
                         attrs: {
                             fill: "#FFD844"
                         }
@@ -146,10 +146,10 @@
                             fill: "#D9B800"
                         },
                         text: {content: "", attrs: {"font-size": 15, "fill": "#000"}},
-                        tooltip: {content: "Direção"},
+                        tooltip: {content: "Sala 77"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "Pos": {
+                    "Sala78": {
                         attrs: {
                             fill: "#FFD844"
                         }
@@ -157,10 +157,10 @@
                             fill: "#D9B800"
                         },
                         text: {content: "", attrs: {"font-size": 15, "fill": "#000"}},
-                        tooltip: {content: "Coordenação de Pós-Graduação"},
+                        tooltip: {content: "Sala 78"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "Coord": {
+                    "Servidor": {
                         attrs: {
                             fill: "#FFD844"
                         }
@@ -168,18 +168,7 @@
                             fill: "#D9B800"
                         },
                         text: {content: "", attrs: {"font-size": 15, "fill": "#000"}},
-                        tooltip: {content: "Coordenações de Cursos"},
-//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
-                    },
-                    "ApoioTecnico": {
-                        attrs: {
-                            fill: "#FFD844"
-                        }
-                        , attrsHover: {
-                            fill: "#D9B800"
-                        },
-                        text: {content: "", attrs: {"font-size": 15, "fill": "#000"}},
-                        tooltip: {content: "Sala de Apoio Técnico"},
+                        tooltip: {content: "Sala de do Servidor"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
                     "Elevador": {
@@ -193,51 +182,29 @@
                         tooltip: {content: "Elevador"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "NUTI": {
+                    "Pesquisas1": {
                         attrs: {
                             fill: "#aaccff"
                         }
                         , attrsHover: {
                             fill: "#647896"
                         },
-                        text: {content: "NUTI", attrs: {"font-size": 38, "fill": "#000"}},
-                        tooltip: {content: "Núcleo de Tecnologia da Informação"},
+                        text: {content: "Pesquisas", attrs: {"font-size": 26, "fill": "#000"}},
+                        tooltip: {content: "Laboratórios de Pesquisa"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "Video": {
+                    "Pesquisas2": {
                         attrs: {
                             fill: "#aaccff"
                         }
                         , attrsHover: {
                             fill: "#647896"
                         },
-                        text: {content: "Video", attrs: {"font-size": 18, "fill": "#000"}},
-                        tooltip: {content: "Sala de videoconferência"},
+                        text: {content: "Pesquisas", attrs: {"font-size": 26, "fill": "#000"}},
+                        tooltip: {content: "Laboratórios de Pesquisa"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "Auditorio": {
-                        attrs: {
-                            fill: "#FF5555"
-                        }
-                        , attrsHover: {
-                            fill: "#9E3535"
-                        },
-                        text: {content: "Auditório", attrs: {"font-size": 45, "fill": "#000"}},
-                        tooltip: {content: "Auditório (Bugão)"},
-//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
-                    },
-                    "Jardim": {
-                        attrs: {
-                            fill: "#AADE87"
-                        }
-                        , attrsHover: {
-                            fill: "#00B06B"
-                        },
-                        text: {content: "Jardim", attrs: {"font-size": 45, "fill": "#000"}},
-                        tooltip: {content: "Jardim aberto"},
-//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
-                    },
-                    "Corredores": {
+                    "Corredor": {
                         attrs: {
                             fill: "#e6e6e6"
                         }
@@ -248,40 +215,40 @@
                         tooltip: {content: "Corredores"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "Escadas": {
+                    "Escada4": {
                         attrs: {
                             fill: "#B89E8D"
                         }
                         , attrsHover: {
                             fill: "#7D6C60"
                         },
-                        text: {content: "Escadas", attrs: {"font-size": 12, "fill": "#000"}},
+                        text: {content: "", attrs: {"font-size": 12, "fill": "#000"}},
                         tooltip: {content: "Escadas"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "EscadasAudit": {
+                    "Escada1": {
                         attrs: {
                             fill: "#B89E8D"
                         }
                         , attrsHover: {
                             fill: "#7D6C60"
                         },
-                        text: {content: "Escadas", attrs: {"font-size": 12, "fill": "#000"}},
+                        text: {content: "", attrs: {"font-size": 12, "fill": "#000"}},
                         tooltip: {content: "Escadas"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "EscadasLabs": {
+                    "Escada2": {
                         attrs: {
                             fill: "#B89E8D"
                         }
                         , attrsHover: {
                             fill: "#7D6C60"
                         },
-                        text: {content: "Escadas", attrs: {"font-size": 24, "fill": "#000"}},
+                        text: {content: "", attrs: {"font-size": 24, "fill": "#000"}},
                         tooltip: {content: "Escadas"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "EscadasProf": {
+                    "Escada3": {
                         attrs: {
                             fill: "#B89E8D"
                         }
@@ -292,105 +259,149 @@
                         tooltip: {content: "Escadas"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "CB01": {
+                    "CB08": {
                         attrs: {
                             fill: "#aaeeff"
                         }
                         , attrsHover: {
                             fill: "#00C3D1"
                         },
-                        text: {content: "CB01", attrs: {"font-size": 35, "fill": "#000"}},
-                        tooltip: {content: "Sala CB01"},
+                        text: {content: "CB08", attrs: {"font-size": 26, "fill": "#000"}},
+                        tooltip: {content: "Sala CB08"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "CB02": {
+                    "Lab1": {
                         attrs: {
                             fill: "#aaeeff"
                         }
                         , attrsHover: {
                             fill: "#00C3D1"
                         },
-                        text: {content: "CB02", attrs: {"font-size": 35, "fill": "#000"}},
-                        tooltip: {content: "Sala CB02"},
+                        text: {content: "Lab1", attrs: {"font-size": 35, "fill": "#000"}},
+                        tooltip: {content: "Laboratório 1"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "CB03": {
+                    "Lab2": {
                         attrs: {
                             fill: "#aaeeff"
                         }
                         , attrsHover: {
                             fill: "#00C3D1"
                         },
-                        text: {content: "CB03", attrs: {"font-size": 35, "fill": "#000"}},
-                        tooltip: {content: "Sala CB03"},
+                        text: {content: "Lab2", attrs: {"font-size": 35, "fill": "#000"}},
+                        tooltip: {content: "Laboratório 2"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "CB04": {
+                    "Lab3": {
                         attrs: {
                             fill: "#aaeeff"
                         }
                         , attrsHover: {
                             fill: "#00C3D1"
                         },
-                        text: {content: "CB04", attrs: {"font-size": 35, "fill": "#000"}},
-                        tooltip: {content: "Sala CB04"},
+                        text: {content: "Lab3", attrs: {"font-size": 28, "fill": "#000"}},
+                        tooltip: {content: "Laboratório 3"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "CB05": {
+                    "Lab4": {
                         attrs: {
                             fill: "#aaeeff"
                         }
                         , attrsHover: {
                             fill: "#00C3D1"
                         },
-                        text: {content: "CB05", attrs: {"font-size": 35, "fill": "#000"}},
-                        tooltip: {content: "Sala CB05"},
+                        text: {content: "Lab4", attrs: {"font-size": 28, "fill": "#000"}},
+                        tooltip: {content: "Laboratório 4"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "CA": {
+                    "Lab5": {
                         attrs: {
-                            fill: "#FF9046"
+                            fill: "#aaeeff"
                         }
                         , attrsHover: {
-                            fill: "#9C582B"
+                            fill: "#00C3D1"
                         },
-                        text: {content: "CA", attrs: {"font-size": 35, "fill": "#000"}},
-                        tooltip: {content: "Centro Acadêmico"},
+                        text: {content: "Lab5", attrs: {"font-size": 28, "fill": "#000"}},
+                        tooltip: {content: "Laboratório 5"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "Cantina": {
+                    "LabHard": {
+                        attrs: {
+                            fill: "#aaeeff"
+                        }
+                        , attrsHover: {
+                            fill: "#00C3D1"
+                        },
+                        text: {content: "Hardware", attrs: {"font-size": 24, "fill": "#000"}},
+                        tooltip: {content: "Laboratório de Hardware"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "WC1": {
+                        attrs: {
+                            fill: "#DDC0E5"
+                        }
+                        , attrsHover: {
+                            fill: "#AA93B0"
+                        },
+                          text: {content: "WC", attrs: {"font-size": 26, "fill": "#000"}},
+                          tooltip: {content: "Banheiros"}
+                    },
+                    "WC2": {
+                        attrs: {
+                            fill: "#DDC0E5"
+                        }
+                        , attrsHover: {
+                            fill: "#AA93B0"
+                        },
+                          text: {content: "WC", attrs: {"font-size": 22, "fill": "#000"}},
+                          tooltip: {content: "Banheiros"}
+//                        href: "http://fr.wikipedia.org/wiki/C%C3%B4te-d%27Or",
+//                        target: "_blank"
+                    },
+                    "Profs1": {
                         attrs: {
                             fill: "#80ffe6"
                         }
                         , attrsHover: {
                             fill: "#00B8A6"
                         },
-                        text: {content: "Cantina", attrs: {"font-size": 35, "fill": "#000"}},
-                        tooltip: {content: "Cantina"},
+                        text: {content: "Professores", attrs: {"font-size": 28, "fill": "#000"}},
+                        tooltip: {content: "Sala dos Professores"},
 //                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "BanheirosAudit": {
+                    "Profs2": {
                         attrs: {
-                            fill: "#DDC0E5"
+                            fill: "#80ffe6"
                         }
                         , attrsHover: {
-                            fill: "#AA93B0"
+                            fill: "#00B8A6"
                         },
-                          text: {content: "Banheiros", attrs: {"font-size": 18, "fill": "#000"}},
-                          tooltip: {content: "Banheiros"}
+                        text: {content: "Professores", attrs: {"font-size": 28, "fill": "#000"}},
+                        tooltip: {content: "Sala dos Professores"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
                     },
-                    "BanheirosHall": {
+                    "Profs3": {
                         attrs: {
-                            fill: "#DDC0E5"
+                            fill: "#80ffe6"
                         }
                         , attrsHover: {
-                            fill: "#AA93B0"
+                            fill: "#00B8A6"
                         },
-                          text: {content: "Banheiros", attrs: {"font-size": 12, "fill": "#000"}},
-                          tooltip: {content: "Banheiros"}
-//                        href: "http://fr.wikipedia.org/wiki/C%C3%B4te-d%27Or",
-//                        target: "_blank"
-                    }
+                        text: {content: "Professores", attrs: {"font-size": 24, "fill": "#000"}},
+                        tooltip: {content: "Sala dos Professores"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
+                    "Estudos": {
+                        attrs: {
+                            fill: "#FF5555"
+                        }
+                        , attrsHover: {
+                            fill: "#9E3535"
+                        },
+                        text: {content: "", attrs: {"font-size": 45, "fill": "#000"}},
+                        tooltip: {content: "Sala de Estudos"},
+//                        href: "http://fr.wikipedia.org/wiki/Morbihan"
+                    },
                 }
             });
         });
@@ -419,5 +430,13 @@
 
 <!--    <p><b>All example for jQuery Mapael are available <a href="https://www.vincentbroute.fr/mapael/">here</a>.</b></p>-->
 </div>
+    <footer class="page-footer center-on-small-only">
+        <div class="footer-copyright">
+            <div class="container-fluid" style="color:azure;text-align:center">
+                Feito por: Vinicius Cardoso Faria
+
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
